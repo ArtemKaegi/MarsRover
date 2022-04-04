@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class RockGenerator : MonoBehaviour
 {
-    private int x = 128;
-    private int z = 128;
+    public int x = 128;
+    public int z = 128;
 
-    public Vector3 randomization;
-    public int current;
+    public Vector3 randomPosition;
+    public Vector3 randomRotation;
     public LayerMask layers;
     [SerializeField] private GameObject[] rocks;
 
@@ -20,11 +20,11 @@ public class RockGenerator : MonoBehaviour
             {
                 RaycastHit hit;
                 if (Physics.Raycast(
-                        new Vector3(currentX + Random.Range(-randomization.x, randomization.x), 20,
-                            currentZ + Random.Range(-randomization.z, randomization.z)), Vector3.down, out hit, 100, layers))
+                        new Vector3(currentX + Random.Range(-randomPosition.x, randomPosition.x), 20,
+                            currentZ + Random.Range(-randomPosition.z, randomPosition.z)), Vector3.down, out hit, 100, layers))
                 {
                     GameObject rock = Instantiate(rocks[0], hit.point,
-                        Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
+                        Quaternion.Euler(Random.Range(0, randomRotation.x), Random.Range(0, randomRotation.y), Random.Range(0, randomRotation.z)));
                     float scale = Random.Range(0.1f, 1f);
                     rock.transform.localScale = new Vector3(scale, scale, scale);
                     rock.transform.position += Vector3.down * scale * 0.7f;

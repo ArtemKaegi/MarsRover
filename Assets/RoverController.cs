@@ -31,6 +31,13 @@ public class RoverController : MonoBehaviour
     [SerializeField] private Transform BRWheel;
     [SerializeField] private Transform BLWheel;
 
+    [SerializeField] private TrailRenderer FRTrail;
+    [SerializeField] private TrailRenderer FLTrail;
+    [SerializeField] private TrailRenderer CRTrail;
+    [SerializeField] private TrailRenderer CLTrail;
+    [SerializeField] private TrailRenderer BRTrail;
+    [SerializeField] private TrailRenderer BLTrail;
+
 
     void Start()
     {
@@ -95,6 +102,12 @@ public class RoverController : MonoBehaviour
         UpdateWheelPos(CRWheelCollider, CRWheel);
         UpdateWheelPos(BLWheelCollider, BLWheel);
         UpdateWheelPos(BRWheelCollider, BRWheel);
+        checkTrail(FRWheelCollider, FRTrail);
+        checkTrail(FLWheelCollider, FLTrail);
+        checkTrail(CRWheelCollider, CRTrail);
+        checkTrail(CLWheelCollider, CLTrail);
+        checkTrail(BRWheelCollider, BRTrail);
+        checkTrail(BLWheelCollider, BLTrail);
     }
 
     private void UpdateWheelPos(WheelCollider wheelCollider, Transform trans)
@@ -104,5 +117,17 @@ public class RoverController : MonoBehaviour
         wheelCollider.GetWorldPose(out pos, out rot);
         trans.rotation = rot;
         trans.position = pos;
+    }
+
+    private void checkTrail(WheelCollider wheel, TrailRenderer trail)
+    {
+        if (wheel.isGrounded)
+        {
+            trail.emitting = true;
+        }
+        else
+        {
+            trail.emitting = false;
+        }
     }
 }
