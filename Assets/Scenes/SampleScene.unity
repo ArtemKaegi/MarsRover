@@ -1939,7 +1939,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1889374186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1957,13 +1957,15 @@ MonoBehaviour:
   randomPosition: {x: 3, y: 0, z: 3}
   randomRotation: {x: 360, y: 360, z: 360}
   maxScale: 0.1
-  minScale: 0.5
+  minScale: 1
   layers:
     serializedVersion: 2
     m_Bits: 8
   rocks:
   - {fileID: 5280424540735813128, guid: 793bf19b55209204aadedc6d6a233194, type: 3}
   - {fileID: 7057616790658998896, guid: 0fd43e64f0b7065459b56d8c7898a1b6, type: 3}
+  - {fileID: 8766139901007096522, guid: dc4bb8444f2937544a98eaffcc7ee71b, type: 3}
+  - {fileID: 3583531805854256615, guid: 01717b34c6857d24fadf23394682dc14, type: 3}
 --- !u!4 &1889374187
 Transform:
   m_ObjectHideFlags: 0

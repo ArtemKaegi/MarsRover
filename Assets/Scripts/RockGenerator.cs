@@ -27,7 +27,24 @@ public class RockGenerator : MonoBehaviour
                 {
                     GameObject rock = Instantiate(rocks[Random.Range(0, rocks.Length)], hit.point,
                         Quaternion.Euler(Random.Range(0, randomRotation.x), Random.Range(0, randomRotation.y), Random.Range(0, randomRotation.z)));
-                    float scale = Random.Range(minScale, maxScale);
+                    float scale;
+                    float prob = Random.value;
+                    Debug.Log(prob);
+                    if (prob < 1f)
+                    {
+                        scale = Random.Range(minScale, maxScale * 0.3f);
+                        Debug.Log("Smallest");
+                    }
+                    else if(prob < 1f)
+                    {
+                        scale = Random.Range(minScale, maxScale * 0.5f);
+                        Debug.Log("Mediumest");
+                    }
+                    else
+                    {
+                        scale = Random.Range(minScale, maxScale);
+                        Debug.Log("Largest");
+                    }
                     rock.transform.localScale = new Vector3(scale, scale, scale);
                     rock.transform.position += Vector3.down * scale * 0.7f;
                 }

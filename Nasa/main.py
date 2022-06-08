@@ -1,15 +1,12 @@
-import pathlib
+import os
 
 import requests
-import os
-from bs4 import BeautifulSoup as bs
-import urllib.request as ulib
 from selenium import webdriver
 
 page = 0
 driver = webdriver.Firefox(executable_path="C:\geckodriver\geckodriver.exe")
-path = r"D:/Test"
-currentCamera = "chemcam"
+path = r"E:\Nasa Images\Curiosity"
+currentCamera = "mardi"
 
 
 def get_picture_urls(url):
@@ -48,7 +45,9 @@ if __name__ == '__main__':
                 handler.write(img_data)
                 currentImage += 1
                 print("ImageSaved: " + str(currentImage))
+                handler.close()
         else:
             page += 1
             print(page)
+
     driver.close()

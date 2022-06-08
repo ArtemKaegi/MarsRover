@@ -13,7 +13,7 @@ public class TerrainGenerator : MonoBehaviour
 
     public float xOffset;
     public float yOffset;
-    void Update()
+    void Start()
     {
         Terrain terrain = GetComponent<Terrain>();
         terrain.terrainData = GenerateTerrain(terrain.terrainData);
