@@ -6,3 +6,6 @@ Um dieses Projekt auszuführen brauch man Unity 2020.3.27f1. Dann kann man den P
 
 ## Code
 Der gesammte Code befindet sich im [Scripts Ordner](Assets/Scripts)
+
+## Konfigurationen
+Die Konfiguration des Motores, der Beschleunigung und Anzihungskraft läst sich durch die Komponenten des Objekts in Unity bearbeiten. 
